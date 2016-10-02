@@ -5,19 +5,26 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class BasicTests {
-	
-	@Test
-	public void firstFirefoxTest() throws FileNotFoundException, IOException {
 
-		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-		capabilities.setCapability("marionette", false);
-		WebDriver driver = new FirefoxDriver(capabilities);
+
+	@BeforeTest
+	public void setup() {
+		System.setProperty("webdriver.gecko.driver","/Users/gridfusion/Downloads/geckodriver");
+		System.setProperty("webdriver.chrome.driver", "/Users/gridfusion/Downloads/chromedriver");
+	}
+
+
+	@Test
+	public void firstTest() throws IOException {
+
+		WebDriver driver = new ChromeDriver();
 
 		// navigate to the URL
 		driver.get("http://www.element34.net");
@@ -26,27 +33,11 @@ public class BasicTests {
 		driver.quit();
 	}
 
-
-	@Test
-	public void firstChromeTest() throws FileNotFoundException, IOException {
-
-		System.setProperty("webdriver.chrome.driver", "/home/e34/Downloads/chromedriver");
-		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-		WebDriver driver = new ChromeDriver(capabilities);
-
-		// navigate to the URL
-		driver.get("http://www.element34.net");
-
-		// close the Browser
-		driver.quit();
-	}
 
 	@Test
 	public void pageTitleTest() throws InterruptedException, FileNotFoundException, IOException {
 
-		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-		capabilities.setCapability("marionette", false);
-		WebDriver driver = new FirefoxDriver(capabilities);
+		WebDriver driver = new ChromeDriver();
 
 		driver.get("http://www.element34.net");
 		String pageTitle = driver.getTitle();
@@ -56,36 +47,6 @@ public class BasicTests {
 		driver.quit();
 	}
 	
-	
-	
-	@Test
-	public void pageTitleTestWithAssertNoTryCatch() throws FileNotFoundException, IOException {
 
-		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-		capabilities.setCapability("marionette", false);
-		WebDriver driver = new FirefoxDriver(capabilities);
-
-		driver.get("http://www.element34.net");
-		Assert.assertEquals(driver.getTitle(), "Element34 Solutions");
-		driver.quit();
-	}
-	
-
-	@Test
-	public void pageTitleTestWithAssert() throws FileNotFoundException, IOException {
-
-		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-		capabilities.setCapability("marionette", false);
-		WebDriver driver = new FirefoxDriver(capabilities);
-
-		try {
-			driver.get("http://www.element34.net");
-			Assert.assertEquals(driver.getTitle(), "Element34 Solut");
-		}
-		finally {
-			driver.quit();			
-		}
-	}
-	
 }
 

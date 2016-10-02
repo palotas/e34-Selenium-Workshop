@@ -54,17 +54,5 @@ public  class DriverFactory {
 	    return driver;
 	}
 
-	//remote IE driver
-	public static WebDriver createRemoteIEDriver() throws FileNotFoundException, IOException {
-		
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setBrowserName("internet explorer");
-		//System.setProperty("webdriver.ie.driver", "IEDriverServer.exe"); //not needed if server is started with same options via command line
-
-		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
-	    return driver;
-	}
-	
-
 
 }
