@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -35,16 +36,23 @@ public class BasicTests {
 
 
 	@Test
-	public void pageTitleTest() throws InterruptedException, FileNotFoundException, IOException {
+	public void pageTitleTest() throws InterruptedException, IOException {
 
 		WebDriver driver = new ChromeDriver();
 
 		driver.get("http://www.element34.net");
 		String pageTitle = driver.getTitle();
 		System.out.println("Page Title: " + pageTitle);
-		
-		Thread.sleep(2000);
-		driver.quit();
+
+		try {
+			Assert.assertEquals(pageTitle, "Test");
+		}
+		finally {
+			Thread.sleep(2000);
+			driver.quit();
+		}
+
+
 	}
 	
 
