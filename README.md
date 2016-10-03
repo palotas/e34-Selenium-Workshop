@@ -1,5 +1,9 @@
 # seleniumtraining
 
+## set java version to java8
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
+
 ## To start remote selenium server
 - put IEDriverServer.exe into the same directory as selenium-server-standalone-2.46.0.jar
 - from terminal window start sever as follows: java -jar selenium-server-standalone-2.46.0.jar -Dwebdriver.ie.driver=IEDriverServer.exe

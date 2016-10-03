@@ -8,24 +8,22 @@ public class TestngBasicTests {
 	
 	
 	@Test
-	public void myFirstTestngTest() {
+	public void test1() {
 		int a = 3;
 		int b = 2;
 		int c;
 		c = a + b;
-		Assert.assertEquals(c, 4);
-		System.out.println("myFirstTestngTest...");	
+		Assert.assertEquals(c, 5);
 	}
 
-	
-	@Test
-	public void mySecondTestngTest() {
-		System.out.println("mySecondTestngTest...");	
+	@Test(dependsOnMethods={"test1"})
+	public void mytest2() {
+
+		String lastname = "Palotas";
+		String firstname = "Michael";
+
+		String fullname = firstname + lastname;
+		Assert.assertEquals(fullname.length(), 14);
 	}
 
-	@Test
-	public void myThirdTestngTest() {
-		System.out.println("myThirdTestngTest...");	
-	}	
-	
 }
