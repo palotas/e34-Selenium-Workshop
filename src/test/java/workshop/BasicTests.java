@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -142,6 +143,50 @@ public class BasicTests {
 		Thread.sleep(3000);
 		driver.quit();
 	}
+
+
+
+	@Test
+	public void implicitWaitHeroku() throws InterruptedException, FileNotFoundException, IOException {
+
+
+		WebDriver driver = new ChromeDriver();
+
+		try {
+			//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			driver.get("http://the-internet.herokuapp.com/dynamic_loading/2");
+
+			driver.findElement(By.cssSelector("#start > button")).click();
+			System.out.println(driver.findElement(By.cssSelector("#finish")).getText());
+		}
+
+		finally {
+			driver.quit();
+		}
+	}
+
+
+
+
+	@Test
+	public void explicitWait() throws InterruptedException, FileNotFoundException, IOException {
+
+		WebDriver driver = new ChromeDriver();
+
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+
+		try {
+			driver.get("http://the-internet.herokuapp.com/dynamic_loading/2");
+
+			driver.findElement(By.cssSelector("#start > button")).click();
+			//wait.until((ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#finish"))));
+			System.out.println(driver.findElement(By.cssSelector("#finish")).getText());
+		}
+		finally {
+			driver.quit();
+		}
+	}
+
 
 }
 
