@@ -2,15 +2,15 @@
   
 <suite name="TestNG Groups" verbose="1" >
  
-  <test name="Regression Test 1">
+  <test name="E34 Workshop Tests">
 	<groups>
 		<run>
-			<exclude name="smoke"/>
+			<include name="nightly"/>
 		</run>
 	</groups>
 	
 	<classes>
-	      <class name="testng.TestngGroups"/>
+	      <class name="workshop.TestngBasicTests"/>
 	</classes>
   </test>
 </suite>

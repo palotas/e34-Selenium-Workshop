@@ -1,4 +1,4 @@
-package testng;
+package workshop;
 
 
 import org.testng.Assert;
@@ -41,5 +41,20 @@ public class TestngBasicTests {
 
 		String fullname = firstname + lastname;
 		Assert.assertEquals(fullname.length(), 12);
+	}
+
+	@Test(groups= {"regression", "nightly"})
+	public void mytest1() {
+		System.out.println("mytest1...");
+	}
+
+	@Test(groups= {"regression"})
+	public void mytest2() {
+		System.out.println("mytest2...");
+	}
+
+	@Test(groups= {"regression"})
+	public void mytest3() {
+		System.out.println("mytest3...");
 	}
 }

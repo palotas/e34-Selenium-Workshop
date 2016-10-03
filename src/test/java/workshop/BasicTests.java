@@ -1,4 +1,4 @@
-package webdriverBasics;
+package workshop;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -118,6 +118,28 @@ public class BasicTests {
 		driver.get("http://localhost:8080");
 
 		Thread.sleep(5000);
+		driver.quit();
+	}
+
+	@Test
+	public void navigationTest() throws InterruptedException {
+
+		WebDriver driver = new ChromeDriver();
+
+		driver.get("http://localhost:8080");
+		Thread.sleep(3000);
+
+		driver.get("http://localhost:8080/docs/");
+		Thread.sleep(3000);
+
+		driver.navigate().back();
+		Thread.sleep(3000);
+
+		driver.navigate().forward();
+		Thread.sleep(3000);
+
+		driver.navigate().refresh();
+		Thread.sleep(3000);
 		driver.quit();
 	}
 
