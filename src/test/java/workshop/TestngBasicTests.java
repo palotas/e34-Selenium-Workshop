@@ -2,18 +2,24 @@ package testng;
 
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class TestngBasicTests {
 	
-	
+	@BeforeTest
+	public void setup() {
+		System.out.println("setting up the system");
+	}
+
+
 	@Test
 	public void test1() {
 		int a = 3;
 		int b = 2;
 		int c;
 		c = a + b;
-		Assert.assertEquals(c, 5);
+		Assert.assertTrue(c==5);
 	}
 
 	@Test(dependsOnMethods={"test1"})
