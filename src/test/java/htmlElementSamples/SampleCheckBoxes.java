@@ -10,6 +10,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -18,7 +19,7 @@ public class SampleCheckBoxes {
 		
 	@Test
 	public void checkboxTest() throws InterruptedException, FileNotFoundException, IOException {
-		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
+		WebDriver driver = new ChromeDriver();
 		
 		try {
 			driver.get("http://www.element34.net/testpage");

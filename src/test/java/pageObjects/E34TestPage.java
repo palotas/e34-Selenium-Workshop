@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * Created by gridfusion on 07/05/16.
  */
-public class NzzLoginPage {
+public class E34TestPage {
 
     @FindBy(id="firstname")
     private WebElement firstName;
@@ -20,7 +20,7 @@ public class NzzLoginPage {
     private WebElement button;
 
 
-    public NzzLoginPage(WebDriver driver) {
+    public E34TestPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 

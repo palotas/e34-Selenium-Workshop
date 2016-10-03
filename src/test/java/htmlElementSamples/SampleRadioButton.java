@@ -8,6 +8,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -15,7 +16,7 @@ public class SampleRadioButton {
 	
 	@Test
 	public void radioButtonTest() throws InterruptedException, FileNotFoundException, IOException {
-		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
+		WebDriver driver = new ChromeDriver();
 		
 		try {
 			driver.get("http://element34.net/testpage");

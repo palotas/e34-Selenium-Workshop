@@ -21,7 +21,7 @@ public class NzzTestNoPageObject {
         capabilities.setCapability("marionette", false);
         WebDriver driver = new FirefoxDriver(capabilities);
 
-        NzzLoginPage loginPage = new NzzLoginPage(driver);
+        E34TestPage loginPage = new E34TestPage(driver);
 
         WebElement login = driver.findElement(By.id("loginName"));
         login.sendKeys("testuser1@test.ch");
