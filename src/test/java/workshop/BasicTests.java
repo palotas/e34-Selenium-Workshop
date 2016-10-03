@@ -13,6 +13,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import reporting.DoScreenshot;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -183,6 +184,21 @@ public class BasicTests {
 			System.out.println(driver.findElement(By.cssSelector("#finish")).getText());
 		}
 		finally {
+			driver.quit();
+		}
+	}
+
+
+	@Test
+	public void screenshotTest() {
+		WebDriver driver = new ChromeDriver();
+
+		driver.get("http://localhost:8080");
+		try {
+			DoScreenshot.takeScreenshot(driver);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
 			driver.quit();
 		}
 	}

@@ -14,17 +14,12 @@ import java.io.IOException;
 
 public class DoScreenshot {
 
+	final static String path = "/Users/Gridfusion/tmp/screenshots/";
 
-	//final static String path = "/Users/Gridfusion/tmp/screenshots/";
-	final static String path = "/home/e34/Workspace/Seleniumtraining/screenshots/";
-
-	public static void takeScreenshotNoReport(WebDriver driver) throws Exception {
+	public static void takeScreenshot(WebDriver driver) throws Exception {
 		
 	  	RemoteWebDriver newDriver = (RemoteWebDriver)driver;
-	    //take screenshot
 	  	File source = ((TakesScreenshot)newDriver).getScreenshotAs(OutputType.FILE);
-	    //copy file to final destination
-        //FileUtils.copyFile(source, new File("C:\\Users\\Michael Palotas\\tmp\\" + source.getName()));
         FileUtils.copyFile(source, new File(path + source.getName()));
 
     }
