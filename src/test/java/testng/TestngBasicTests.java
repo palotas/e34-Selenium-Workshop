@@ -17,7 +17,7 @@ public class TestngBasicTests {
 	}
 
 	@Test(dependsOnMethods={"test1"})
-	public void mytest2() {
+	public void test2() {
 
 		String lastname = "Palotas";
 		String firstname = "Michael";
@@ -26,4 +26,14 @@ public class TestngBasicTests {
 		Assert.assertEquals(fullname.length(), 14);
 	}
 
+
+	@Test(dependsOnMethods={"test1"})
+	public void mtest3() {
+
+		String lastname = "Palotas";
+		String firstname = "Tulip";
+
+		String fullname = firstname + lastname;
+		Assert.assertEquals(fullname.length(), 12);
+	}
 }
