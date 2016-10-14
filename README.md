@@ -9,6 +9,9 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 - the story behind Selenium 
 - what is Selenium? 
 - what is it not?  
+- Selenium 3
+
+(30 minutes) 
 
 
 2. Selenium and TestNG / JUnit 
@@ -20,12 +23,46 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 - dependent test 
 - add another dependent test 
 - data provider 
+(20 minutes) 
 
+3. Selenium API 
+- firstTest (open a regular page) 
+- page title test 
+- findelement test 
+- countNavEntries 
+- Scroll
 - navigation test 
+- implicit wait 
+- explicit wait 
+(30 minutes) 
+
+
+4. RemoteWebdriver 
+- remote webdriver 
+- desired capabilties 
+
+5. Page Objects
+
+6. Misc
+- data provider Test 
 
 
 
+Topics covered:
+Introduction and current trends in test automation
+Selenium: an overview of Selenium / Webdriver and Selenium Grid
+Where to use Selenium and where not
+The Selenium protocol
+Selenium in conjunction with test frameworks like JUnit and TestNG
+Testing dynamic pages with Selenium
+Easy maintenance with Page Objects
+Reporting
+Mobile automation with Selenium
+Selenium in the future
 
+
+## copy war file to tomcat docker container 
+docker cp target/hustefapp.war grave_poincare:/usr/local/tomcat/webapps/hustef.war
 
 
 ## To start remote selenium server

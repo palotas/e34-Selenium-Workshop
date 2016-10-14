@@ -24,20 +24,4 @@ public class DoScreenshot {
 
     }
 
-	
-	public static void remoteWebDriverScreenshot(WebDriver driver) throws IOException {
-		
-		 WebDriver augmentedDriver = new Augmenter().augment(driver);
-		 File screenshot = ((TakesScreenshot)augmentedDriver).
-		 getScreenshotAs(OutputType.FILE);
-	     Reporter.setEscapeHtml(false);
-
-		 FileUtils.copyFile(screenshot, new File(path + screenshot.getName()));
-		    Reporter.log("Screenshot of page: " + "<b>" + driver.getTitle() + "</b>" + " at " + driver.getCurrentUrl());
-		    Reporter.log("<br> <img src=" + path + screenshot.getName() + " " + "width=\"320\" height=\"240\" /> <br>");
-		    
-		    System.out.println(screenshot.getName());
-	}
-	
-	
 }

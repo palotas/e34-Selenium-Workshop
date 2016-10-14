@@ -31,7 +31,7 @@ public class DataProviderTest {
 
 
 	@Test(dataProvider="urlprovider")
-	public void dataProvideTest(String url) {
+	public void dataProviderTest(String url) {
 		WebDriver driver = new ChromeDriver();
 		driver.get(url);
 		System.out.println("Page title: " + driver.getTitle());

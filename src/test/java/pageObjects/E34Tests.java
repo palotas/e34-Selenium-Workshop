@@ -34,6 +34,7 @@ public class E34Tests {
         Thread.sleep(3000);
 
         myPage.clickButton();
+        Thread.sleep(3000);
 
         driver.quit();
 

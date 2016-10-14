@@ -1,17 +1,16 @@
 package workshop;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.ExpectedExceptions;
 import org.testng.annotations.Test;
 import reporting.DoScreenshot;
 
@@ -170,7 +169,7 @@ public class BasicTests {
 
 
 	@Test
-	public void explicitWait() throws InterruptedException, FileNotFoundException, IOException {
+	public void explicitWait() throws InterruptedException, IOException {
 
 		WebDriver driver = new ChromeDriver();
 
@@ -187,6 +186,31 @@ public class BasicTests {
 			driver.quit();
 		}
 	}
+
+	@Test
+	public void radioButtonsCheckboxes() throws InterruptedException, IOException {
+
+		WebDriver driver = new ChromeDriver();
+
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+
+		try {
+
+			driver.get("http://localhost:8080/hustef");
+			//check if there are 2 radio buttons on the page
+			Assert.assertEquals(driver.findElements(By.cssSelector("input[type='radio']")).size(), 2);
+
+			//select female radio button and check if it checked
+			WebElement femaleRadiobutton = driver.findElement(By.id("female"));
+			femaleRadiobutton.click();
+			Assert.assertTrue(femaleRadiobutton.isSelected());
+
+		}
+		finally {
+			driver.quit();
+		}
+	}
+
 
 
 	@Test
