@@ -113,7 +113,7 @@ public class BasicTests {
 	public void remoteWebDriver() throws InterruptedException, IOException {
 
 		DesiredCapabilities caps = new DesiredCapabilities();
-		caps.setBrowserName("chrome");
+		caps.setBrowserName("firefox");
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
 
 		driver.get("http://localhost:8080");

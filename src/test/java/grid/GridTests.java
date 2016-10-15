@@ -52,7 +52,7 @@ public class GridTests {
 
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
 
-		driver.get("http://www.20minuten.ch");
+		driver.get("http://www.hustef.hu");
 		Reporter.log("Page Title: " + driver.getTitle());
 
 		driver.quit();
