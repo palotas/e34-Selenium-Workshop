@@ -20,6 +20,7 @@ public class TestngBasicTests {
 		int c;
 		c = a + b;
 		Assert.assertTrue(c==5);
+
 	}
 
 	@Test(dependsOnMethods={"test1"})
