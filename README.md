@@ -2,6 +2,8 @@
 
 ## set java version to java8
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+OR
+JAVA_HOME=$(/usr/libexec/java_home)
 
 
 # HUSTEF High level agenda 
