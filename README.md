@@ -2,6 +2,8 @@
 
 ## set java version to java8
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+OR
+JAVA_HOME=$(/usr/libexec/java_home)
 
 HUB
 java -jar selenium-server-standalone-3.0.0.jar -role hub -hubConfig ~/IdeaProjects/e34-selenium-workshop/testngXmlFiles/hubConfig.json
