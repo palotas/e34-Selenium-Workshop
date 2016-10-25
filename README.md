@@ -19,4 +19,4 @@ java -jar selenium-server-standalone-3.0.0.jar -role node -nodeConfig ~/IdeaProj
 ## A sample application can be found at https://github.com/e34s/hustefapp 
 In order to build the application please clone the repository and execute `mvn package`. This will create a war file in the target directory. If you are using docker you can use the 
 following command to copy the war file to the tomcat docker container (with the name tomcat-hustef): 
-docker cp target/hustefapp.war tomcat-hustef:/usr/local/tomcat/webapps/hustef.war`
+`docker cp target/e34app.war tomcat-hustef:/usr/local/tomcat/webapps/e34app.war`

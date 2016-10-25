@@ -39,7 +39,7 @@ public class E34Tests {
     public void loginTest() throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();
-        driver.get("http://localhost:8080/hustef");
+        driver.get("http://localhost:8080/e34app");
 
         E34TestPage myPage = new E34TestPage(driver);
 

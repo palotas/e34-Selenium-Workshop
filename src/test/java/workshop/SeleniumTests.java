@@ -213,7 +213,7 @@ public class SeleniumTests {
 
 		try {
 
-			driver.get("http://localhost:8080/hustef");
+			driver.get("http://localhost:8080/e34app");
 			//check if there are 2 radio buttons on the page
 			Assert.assertEquals(driver.findElements(By.cssSelector("input[type='radio']")).size(), 2);
 
