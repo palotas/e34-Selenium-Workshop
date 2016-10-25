@@ -16,8 +16,23 @@ public class E34Tests {
 
     @BeforeTest
     public void setup() {
-        System.setProperty("webdriver.gecko.driver","/Users/gridfusion/Downloads/geckodriver");
-        System.setProperty("webdriver.chrome.driver", "/Users/gridfusion/Downloads/chromedriver");
+        String OS = System.getProperty("os.name");
+
+        switch (OS) {
+            case "Linux":
+                System.setProperty("webdriver.gecko.driver","/home/e34/Downloads/geckodriver");
+                System.setProperty("webdriver.chrome.driver", "/home/e34/Downloads/chromedriver");
+                break;
+
+            case "Mac OS X":
+                System.setProperty("webdriver.gecko.driver","/Users/gridfusion/Downloads/geckodriver");
+                System.setProperty("webdriver.chrome.driver", "/Users/gridfusion/Downloads/chromedriver");
+                break;
+
+            default:
+                System.out.println(System.getProperty("os.name") + " is not supported ");
+                break;
+        }
     }
 
     @Test

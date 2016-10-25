@@ -14,6 +14,8 @@ import java.io.IOException;
 
 public class DoScreenshot {
 
+
+	//Change this to your own path
 	final static String path = "/Users/Gridfusion/tmp/screenshots/";
 
 	public static void takeScreenshot(WebDriver driver) throws Exception {

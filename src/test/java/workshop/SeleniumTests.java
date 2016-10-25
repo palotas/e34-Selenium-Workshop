@@ -18,8 +18,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
-public class BasicTests {
+public class SeleniumTests {
 
 
 	@BeforeTest
@@ -117,6 +118,7 @@ public class BasicTests {
 		WebDriver driver = new ChromeDriver();
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		driver.get("http://localhost:8080");
+
 		jse.executeScript("window.scrollBy(0,1000)", "");
 
 		Thread.sleep(5000);
@@ -172,7 +174,7 @@ public class BasicTests {
 			driver.get("http://the-internet.herokuapp.com/dynamic_loading/2");
 
 			driver.findElement(By.cssSelector("#start > button")).click();
-			System.out.println(driver.findElement(By.cssSelector("#finish")).getText());
+			Assert.assertEquals(driver.findElement(By.cssSelector("#finish")).getText(), "Hello World!");
 		}
 
 		finally {
@@ -195,7 +197,7 @@ public class BasicTests {
 
 			driver.findElement(By.cssSelector("#start > button")).click();
 			//wait.until((ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#finish"))));
-			System.out.println(driver.findElement(By.cssSelector("#finish")).getText());
+			Assert.assertEquals(driver.findElement(By.cssSelector("#finish")).getText(), "Hello World!");
 		}
 		finally {
 			driver.quit();
