@@ -46,7 +46,7 @@ public class SeleniumTests {
 
 
 	@Test
-	public void firstTest() throws IOException {
+	public void shouldOpenE34Page() throws IOException {
 
 		WebDriver driver = new ChromeDriver();
 
@@ -59,7 +59,7 @@ public class SeleniumTests {
 
 
 	@Test
-	public void pageTitleTest() throws InterruptedException, IOException {
+	public void shouldPrintPagetitle() throws InterruptedException, IOException {
 
 		WebDriver driver = new ChromeDriver();
 
@@ -78,7 +78,7 @@ public class SeleniumTests {
 
 
 	@Test
-	public void findElementTest() throws InterruptedException, IOException {
+	public void shouldAssertPageTitle() throws InterruptedException, IOException {
 
 		WebDriver driver = new ChromeDriver();
 
@@ -96,7 +96,7 @@ public class SeleniumTests {
 	}
 
 	@Test
-	public void countNavEntries() throws InterruptedException, IOException {
+	public void shouldCountNavEntires() throws InterruptedException, IOException {
 
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://localhost:8080");
@@ -113,7 +113,7 @@ public class SeleniumTests {
 	}
 
 	@Test
-	public void scroll() throws InterruptedException, IOException {
+	public void shouldScroll() throws InterruptedException, IOException {
 
 		WebDriver driver = new ChromeDriver();
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
@@ -127,7 +127,7 @@ public class SeleniumTests {
 
 
 	@Test
-	public void remoteWebDriver() throws InterruptedException, IOException {
+	public void shouldOpenRemoteWebdriver() throws InterruptedException, IOException {
 
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setBrowserName("firefox");
@@ -140,7 +140,7 @@ public class SeleniumTests {
 	}
 
 	@Test
-	public void navigationTest() throws InterruptedException {
+	public void shouldNavigate() throws InterruptedException {
 
 		WebDriver driver = new ChromeDriver();
 

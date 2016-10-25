@@ -35,7 +35,7 @@ public class TestngBasicTests {
 
 
 	@Test(dependsOnMethods={"test1"})
-	public void mtest3() {
+	public void test3() {
 
 		String lastname = "Palotas";
 		String firstname = "Tulip";
