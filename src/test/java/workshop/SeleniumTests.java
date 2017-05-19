@@ -64,6 +64,24 @@ public class SeleniumTests {
 		driver.quit();
 	}
 
+	@Test
+	public void sboxDemo2() throws IOException, InterruptedException {
+
+		DesiredCapabilities caps = new DesiredCapabilities();
+		caps.setBrowserName("chrome");
+
+
+		WebDriver driver = new RemoteWebDriver(new URL("https://789b1ea7eca7.element34.net/wd/hub"), caps);
+
+		// navigate to the URL
+		driver.get("http://www.facebook.com");
+
+		Thread.sleep(2000);
+
+		// close the Browser
+		driver.quit();
+	}
+
 
 
 	@Test
