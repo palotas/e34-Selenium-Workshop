@@ -1,3 +1,14 @@
+# JENKINS 
+jenkins is installed on vm-105.element34.net
+
+on host, go to /home/e34/jenkins/sbox-demo-jenkins-config
+
+run: ./start_jenkins.sh
+
+that's it 
+
+
+
 # E34 Selenium Workshop 
 Please note: we are providing this software as is. No warranties given. If you have questions please file a ticket on Github. 
 

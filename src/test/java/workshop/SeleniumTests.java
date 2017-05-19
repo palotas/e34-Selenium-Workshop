@@ -50,7 +50,8 @@ public class SeleniumTests {
 	public void sboxDemo1() throws IOException, InterruptedException {
 
 		DesiredCapabilities caps = new DesiredCapabilities();
-		caps.setBrowserName("firefox");
+		caps.setBrowserName("chrome");
+		caps.setVersion("57");
 
 
 		WebDriver driver = new RemoteWebDriver(new URL("https://789b1ea7eca7.element34.net/wd/hub"), caps);
