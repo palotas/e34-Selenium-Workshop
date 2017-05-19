@@ -3,5 +3,13 @@
 <suite name="Suite" parallel="false">
     <test name="Test">
 
+        <classes>
+            <class name="workshop.SeleniumTests">
+                <methods>
+                    <include name="sboxDemo1" />
+                </methods>
+            </class>
+        </classes>
+
     </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -13,19 +13,12 @@
       <version>6.9.8</version>
       <scope>test</scope>
     </dependency>
-	
 
-	<dependency>
-	  <groupId>junit</groupId>
-	  <artifactId>junit</artifactId>
-	  <version>4.10</version>
-	  <scope>test</scope>	  
-	</dependency>
 	
 	   <dependency>
         <groupId>org.seleniumhq.selenium</groupId>
         <artifactId>selenium-java</artifactId>
-        <version>3.0.0</version>
+        <version>3.0.1</version>
     </dependency>
 
 
@@ -70,6 +63,11 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.19.1</version>
+          <configuration>
+              <suiteXmlFiles>
+                  <suiteXmlFile>testngXmlFiles/testng.xml</suiteXmlFile>
+              </suiteXmlFiles>
+          </configuration>
       </plugin>
 
     </plugins>   

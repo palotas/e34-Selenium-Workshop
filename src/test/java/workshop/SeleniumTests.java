@@ -45,6 +45,27 @@ public class SeleniumTests {
 	}
 
 
+
+	@Test
+	public void sboxDemo1() throws IOException, InterruptedException {
+
+		DesiredCapabilities caps = new DesiredCapabilities();
+		caps.setBrowserName("firefox");
+
+
+		WebDriver driver = new RemoteWebDriver(new URL("https://789b1ea7eca7.element34.net/wd/hub"), caps);
+
+		// navigate to the URL
+		driver.get("http://www.twitter.com");
+
+		Thread.sleep(2000);
+
+		// close the Browser
+		driver.quit();
+	}
+
+
+
 	@Test
 	public void shouldOpenE34Page() throws IOException {
 
