@@ -1,6 +1,9 @@
 # JENKINS 
 jenkins is installed on vm-105.element34.net
-docker run --name demo-jenkins -p 2808:8080 -p 50000:50000 jenkins
+/home/e34/demo.jenkins.sh
+
+Jenkins container: demo_jenkins
+Volume Container: jenkins_volume
 
 
 
