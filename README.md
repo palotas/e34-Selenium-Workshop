@@ -1,11 +1,6 @@
 # JENKINS 
 jenkins is installed on vm-105.element34.net
-
-on host, go to /home/e34/jenkins/sbox-demo-jenkins-config
-
-run: ./start_jenkins.sh
-
-that's it 
+docker run --name demo-jenkins -p 2808:8080 -p 50000:50000 jenkins
 
 
 
