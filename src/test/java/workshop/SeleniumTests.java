@@ -46,7 +46,7 @@ public class SeleniumTests {
 
 
 
-	@Test
+	@Test(invocationCount = 10, threadPoolSize = 10)
 	public void sboxDemo1() throws IOException, InterruptedException {
 
 		DesiredCapabilities caps = new DesiredCapabilities();
@@ -64,7 +64,7 @@ public class SeleniumTests {
 		driver.quit();
 	}
 
-	@Test
+	@Test(invocationCount = 10, threadPoolSize = 10)
 	public void sboxDemo2() throws IOException, InterruptedException {
 
 		DesiredCapabilities caps = new DesiredCapabilities();
