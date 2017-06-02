@@ -23,26 +23,39 @@ import java.util.concurrent.TimeUnit;
 public class SeleniumTests {
 
 
-	@BeforeTest
-	public void setup() {
-		String OS = System.getProperty("os.name");
+	@Test(invocationCount = 1, threadPoolSize = 1)
+	public void bahnTest() throws IOException, InterruptedException {
 
-		switch (OS) {
-			case "Linux":
-				System.setProperty("webdriver.gecko.driver","/home/e34/Downloads/geckodriver");
-				System.setProperty("webdriver.chrome.driver", "/home/e34/Downloads/chromedriver");
-				break;
+		DesiredCapabilities caps = new DesiredCapabilities();
+		caps.setBrowserName("chrome");
+		//caps.setVersion("58");
 
-			case "Mac OS X":
-				System.setProperty("webdriver.gecko.driver","/Users/gridfusion/Downloads/geckodriver");
-				System.setProperty("webdriver.chrome.driver", "/Users/gridfusion/Downloads/chromedriver");
-				break;
+		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
 
-			default:
-				System.out.println(System.getProperty("os.name") + " is not supported ");
-				break;
-		}
+		// navigate to the URL
+		driver.get("http://www.bahn.de");
+		driver.findElement(By.id("js-auskunft-autocomplete-from")).sendKeys("Frankfurt", Keys.TAB);
+		driver.findElement(By.id("js-auskunft-autocomplete-to")).sendKeys("Hamburg", Keys.TAB);
+		driver.findElement(By.name("date")).sendKeys("20.06.2017");
+		driver.findElement(By.name("time")).sendKeys("09:00");
+		driver.findElement(By.xpath("//*[@id=\"js-tab-auskunft\"]/div/form/fieldset[5]/div/input[1]")).click();
+		driver.findElement(By.xpath("//*[@id=\"resultsOverview\"]/tbody[2]/tr[3]/td[4]/span/a")).click();
+		driver.findElement(By.xpath("//*[@id=\"content\"]/form/div[2]/table[1]/tbody[2]/tr/td[4]/div/span/a")).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//*[@id=\"BCRCon\"]/div[5]/p[1]/span/button/span")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.name("nameRadioGroupLogin3")).click();
+		driver.findElement(By.xpath("//*[@id=\"button.weiter\"]/span")).click();
+		driver.findElement(By.xpath("//*[@id=\"buchenwunsch-button-weiter-id\"]/span")).click();
+
+
+
+		Thread.sleep(3000);
+
+		// close the Browser
+		driver.quit();
 	}
+
 
 
 
@@ -51,7 +64,7 @@ public class SeleniumTests {
 
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setBrowserName("chrome");
-		caps.setVersion("57");
+		//caps.setVersion("58");
 
 
 		WebDriver driver = new RemoteWebDriver(new URL("https://789b1ea7eca7.element34.net/wd/hub"), caps);
@@ -59,17 +72,24 @@ public class SeleniumTests {
 		// navigate to the URL
 		driver.get("http://www.twitter.com");
 
-		Thread.sleep(2000);
+		for (int i=0; i<=10; i++) {
+			driver.getTitle();
+			driver.getCurrentUrl();
+			Thread.sleep(1000);
+
+		}
+
 
 		// close the Browser
 		driver.quit();
 	}
 
-	@Test(invocationCount = 10, threadPoolSize = 10)
+	@Test(invocationCount = 1, threadPoolSize = 10)
 	public void sboxDemo2() throws IOException, InterruptedException {
 
 		DesiredCapabilities caps = new DesiredCapabilities();
-		caps.setBrowserName("chrome");
+		caps.setBrowserName("firefox");
+		caps.setVersion("52");
 
 
 		WebDriver driver = new RemoteWebDriver(new URL("https://789b1ea7eca7.element34.net/wd/hub"), caps);
@@ -85,204 +105,6 @@ public class SeleniumTests {
 
 
 
-	@Test
-	public void shouldOpenE34Page() throws IOException {
-
-		WebDriver driver = new ChromeDriver();
-
-		// navigate to the URL
-		driver.get("http://www.element34.net");
-
-		// close the Browser
-		driver.quit();
-	}
-
-
-	@Test
-	public void shouldPrintPagetitle() throws InterruptedException, IOException {
-
-		WebDriver driver = new ChromeDriver();
-
-		driver.get("http://localhost:8080");
-		String pageTitle = driver.getTitle();
-		System.out.println("Page Title: " + pageTitle);
-
-		try {
-			Assert.assertEquals(pageTitle, "Apache Tomcat/8.0.37");
-		}
-		finally {
-			Thread.sleep(2000);
-			driver.quit();
-		}
-	}
-
-
-	@Test
-	public void shouldAssertPageTitle() throws InterruptedException, IOException {
-
-		WebDriver driver = new ChromeDriver();
-
-		driver.get("http://localhost:8080");
-
-
-		try {
-			driver.findElement(By.id("nav-config")).click();
-			Assert.assertEquals(driver.getTitle(), "Apache Tomcat 8 Configuration Reference (8.0.37) - Overview");
-		}
-		finally {
-			Thread.sleep(2000);
-			driver.quit();
-		}
-	}
-
-	@Test
-	public void shouldCountNavEntires() throws InterruptedException, IOException {
-
-		WebDriver driver = new ChromeDriver();
-		driver.get("http://localhost:8080");
-
-		try {
-			WebElement navigation = driver.findElement(By.id("navigation"));
-			List<WebElement> navEntries = navigation.findElements(By.tagName("a"));
-			Assert.assertEquals(navEntries.size(), 7);
-		}
-		finally {
-			Thread.sleep(2000);
-			driver.quit();
-		}
-	}
-
-	@Test
-	public void shouldScroll() throws InterruptedException, IOException {
-
-		WebDriver driver = new ChromeDriver();
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		driver.get("http://localhost:8080");
-
-		jse.executeScript("window.scrollBy(0,1000)", "");
-
-		Thread.sleep(5000);
-		driver.quit();
-	}
-
-
-	@Test
-	public void shouldOpenRemoteWebdriver() throws InterruptedException, IOException {
-
-		DesiredCapabilities caps = new DesiredCapabilities();
-		caps.setBrowserName("firefox");
-		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
-
-		driver.get("http://localhost:8080");
-
-		Thread.sleep(5000);
-		driver.quit();
-	}
-
-	@Test
-	public void shouldNavigate() throws InterruptedException {
-
-		WebDriver driver = new ChromeDriver();
-
-		driver.get("http://localhost:8080");
-		Thread.sleep(3000);
-
-		driver.get("http://localhost:8080/docs/");
-		Thread.sleep(3000);
-
-		driver.navigate().back();
-		Thread.sleep(3000);
-
-		driver.navigate().forward();
-		Thread.sleep(3000);
-
-		driver.navigate().refresh();
-		Thread.sleep(3000);
-		driver.quit();
-	}
-
-
-
-	@Test
-	public void implicitWaitHeroku() throws InterruptedException, FileNotFoundException, IOException {
-
-
-		WebDriver driver = new ChromeDriver();
-
-		try {
-			//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			driver.get("http://the-internet.herokuapp.com/dynamic_loading/2");
-
-			driver.findElement(By.cssSelector("#start > button")).click();
-			Assert.assertEquals(driver.findElement(By.cssSelector("#finish")).getText(), "Hello World!");
-		}
-
-		finally {
-			driver.quit();
-		}
-	}
-
-
-
-
-	@Test
-	public void explicitWait() throws InterruptedException, IOException {
-
-		WebDriver driver = new ChromeDriver();
-
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-
-		try {
-			driver.get("http://the-internet.herokuapp.com/dynamic_loading/2");
-
-			driver.findElement(By.cssSelector("#start > button")).click();
-			//wait.until((ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#finish"))));
-			Assert.assertEquals(driver.findElement(By.cssSelector("#finish")).getText(), "Hello World!");
-		}
-		finally {
-			driver.quit();
-		}
-	}
-
-	@Test
-	public void radioButtonsCheckboxes() throws InterruptedException, IOException {
-
-		WebDriver driver = new ChromeDriver();
-
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-
-		try {
-
-			driver.get("http://localhost:8080/e34app");
-			//check if there are 2 radio buttons on the page
-			Assert.assertEquals(driver.findElements(By.cssSelector("input[type='radio']")).size(), 2);
-
-			//select female radio button and check if it checked
-			WebElement femaleRadiobutton = driver.findElement(By.id("female"));
-			femaleRadiobutton.click();
-			Assert.assertTrue(femaleRadiobutton.isSelected());
-
-		}
-		finally {
-			driver.quit();
-		}
-	}
-
-
-
-	@Test
-	public void screenshotTest() {
-		WebDriver driver = new ChromeDriver();
-
-		driver.get("http://localhost:8080");
-		try {
-			DoScreenshot.takeScreenshot(driver);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			driver.quit();
-		}
-	}
 
 
 }
