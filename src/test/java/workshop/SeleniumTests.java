@@ -23,8 +23,9 @@ import java.util.concurrent.TimeUnit;
 public class SeleniumTests {
 
 
+
 	@Test(invocationCount = 1, threadPoolSize = 1)
-	public void bahnTest() throws IOException, InterruptedException {
+	public void postTest() throws IOException, InterruptedException {
 
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setBrowserName("chrome");
@@ -33,29 +34,25 @@ public class SeleniumTests {
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
 
 		// navigate to the URL
-		driver.get("http://www.bahn.de");
-		driver.findElement(By.id("js-auskunft-autocomplete-from")).sendKeys("Frankfurt", Keys.TAB);
-		driver.findElement(By.id("js-auskunft-autocomplete-to")).sendKeys("Hamburg", Keys.TAB);
-		driver.findElement(By.name("date")).sendKeys("20.06.2017");
-		driver.findElement(By.name("time")).sendKeys("09:00");
-		driver.findElement(By.xpath("//*[@id=\"js-tab-auskunft\"]/div/form/fieldset[5]/div/input[1]")).click();
-		driver.findElement(By.xpath("//*[@id=\"resultsOverview\"]/tbody[2]/tr[3]/td[4]/span/a")).click();
-		driver.findElement(By.xpath("//*[@id=\"content\"]/form/div[2]/table[1]/tbody[2]/tr/td[4]/div/span/a")).click();
-		Thread.sleep(4000);
-		driver.findElement(By.xpath("//*[@id=\"BCRCon\"]/div[5]/p[1]/span/button/span")).click();
-		Thread.sleep(3000);
-		driver.findElement(By.name("nameRadioGroupLogin3")).click();
-		driver.findElement(By.xpath("//*[@id=\"button.weiter\"]/span")).click();
-		driver.findElement(By.xpath("//*[@id=\"buchenwunsch-button-weiter-id\"]/span")).click();
+		driver.get("https://www.deutschepost.de/de.html");
+		//select Briefmarke
+		driver.findElement(By.cssSelector("#omniture\\#homepage_stamps60\\#None > a:nth-child(1) > span:nth-child(1) > span:nth-child(1)")).click();
+		//Assert.assertEquals(driver.getTitle(), "Briefmarken zu 70 ct - Onlineshop der Deutschen Post");
+		//add to shopping basket
+		Thread.sleep(5000);
+		driver.findElement(By.cssSelector("div.row:nth-child(4) > div:nth-child(1) > div:nth-child(1) > a:nth-child(6)")).click();
 
-
-
-		Thread.sleep(3000);
+		//go to Warenkorb
+		Thread.sleep(5000);
+		driver.findElement(By.cssSelector("#locnav__button-basket")).click();
+		Thread.sleep(5000);
+		String summe = driver.findElement(By.cssSelector("td.table__td--text-right:nth-child(3)")).getText();
+		Assert.assertEquals(summe, "9,95 €");
+		Thread.sleep(2000);
 
 		// close the Browser
 		driver.quit();
 	}
-
 
 
 
