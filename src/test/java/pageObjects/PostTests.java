@@ -41,7 +41,7 @@ public class PostTests {
     public void loginTest() throws InterruptedException, MalformedURLException {
 
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setBrowserName("chrome");
+        caps.setBrowserName("firefox");
         WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
 
         PostHomepage homepage = new PostHomepage(driver);

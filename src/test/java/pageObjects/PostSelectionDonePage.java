@@ -34,7 +34,7 @@ public class PostSelectionDonePage {
 
     public void selectShoppingBasket(WebDriver driver) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 15);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(shoppingBasketLocator)));
+        wait.until(ExpectedConditions.visibilityOf(shoppingBasket));
         Thread.sleep(2000);
         shoppingBasket.click();
     }

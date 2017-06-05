@@ -4,11 +4,7 @@
     <test name="Test">
 
         <classes>
-            <class name="workshop.SeleniumTests">
-                <methods>
-                    <include name="sboxDemo1" />
-                    <include name="sboxDemo2" />
-                </methods>
+            <class name="pageObjects.PostTests">
             </class>
         </classes>
 
