@@ -32,11 +32,12 @@ public class PostSelectionDonePage {
         addToBasket.click();
     }
 
-    public void selectShoppingBasket(WebDriver driver) throws InterruptedException {
-        //WebDriverWait wait = new WebDriverWait(driver, 15);
-        //wait.until(ExpectedConditions.visibilityOf(shoppingBasket));
-        Thread.sleep(15000);
+    public PostWarenkorbPage selectShoppingBasket(WebDriver driver) throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(shoppingBasketLocator)));
+        //Thread.sleep(15000);
         shoppingBasket.click();
+        return new PostWarenkorbPage(driver);
     }
 
 }

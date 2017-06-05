@@ -22,8 +22,9 @@ public class PostHomepage {
         driver.get("https://www.deutschepost.de/de.html");
     }
 
-    public void selectBrief20Gramm() throws InterruptedException {
+    public PostSelectionDonePage selectBrief20Gramm(WebDriver driver) throws InterruptedException {
         brief20gramm.click();
+        return new PostSelectionDonePage(driver);
     }
 
 }

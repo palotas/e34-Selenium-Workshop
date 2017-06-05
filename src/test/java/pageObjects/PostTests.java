@@ -37,24 +37,26 @@ public class PostTests {
         }
     }
 
-    @Test(invocationCount = 10, threadPoolSize = 5)
+    @Test(invocationCount = 1, threadPoolSize = 5)
     public void loginTest() throws InterruptedException, MalformedURLException {
 
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setBrowserName("firefox");
-        caps.setVersion("50");
+        caps.setBrowserName("MicrosoftEdge");
+        //caps.setBrowserName("firefox");
+        //caps.setBrowserName("chrome");
+        //caps.setVersion("50");
         //WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
         WebDriver driver = new RemoteWebDriver(new URL("https://789b1ea7eca7.element34.net/wd/hub"), caps);
 
         PostHomepage homepage = new PostHomepage(driver);
-        PostSelectionDonePage selectionDone = new PostSelectionDonePage(driver);
-        PostWarenkorbPage warenkorb = new PostWarenkorbPage(driver);
-
         homepage.openHomePage(driver);
-        homepage.selectBrief20Gramm();
+
+        PostSelectionDonePage selectionDone = homepage.selectBrief20Gramm(driver);
         selectionDone.clickAddToBasket(driver);
-        selectionDone.selectShoppingBasket(driver);
-        Assert.assertEquals(warenkorb.getSum(driver), "9,95 €");
+
+        PostWarenkorbPage warenkorb = selectionDone.selectShoppingBasket(driver);
+
+        Assert.assertTrue(warenkorb.getSum(driver).contains("9,95"), "Summe is: " + warenkorb.getSum(driver));
         driver.quit();
 
     }
