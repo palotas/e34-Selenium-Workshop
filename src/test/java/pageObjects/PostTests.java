@@ -42,7 +42,8 @@ public class PostTests {
 
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setBrowserName("firefox");
-        WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
+        //WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
+        WebDriver driver = new RemoteWebDriver(new URL("https://789b1ea7eca7.element34.net/wd/hub"), caps);
 
         PostHomepage homepage = new PostHomepage(driver);
         PostSelectionDonePage selectionDone = new PostSelectionDonePage(driver);
