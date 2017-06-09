@@ -1,5 +1,8 @@
 package workshop;
 
+import net.element34.Settings;
+import net.element34.testng.Browsers;
+import net.element34.testng.WebTest;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -20,9 +23,23 @@ import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import static net.element34.testng.MethodInstanceSession.webdriver;
+
 public class SeleniumTests {
 
+	@BeforeTest
+	public void setHub() {
+		Settings.setHubUrl("http://vm-107.element.net:4444");
+	}
 
+	@Test
+	@WebTest(browsers = Browsers.Chrome)
+	public void newtest() {
+		RemoteWebDriver driver = (RemoteWebDriver) webdriver();
+		driver.get("http://www.google.com");
+		System.out.println(driver.getTitle());
+		driver.quit();
+	}
 
 	@Test(invocationCount = 1, threadPoolSize = 1)
 	public void postTest() throws IOException, InterruptedException {
@@ -31,7 +48,7 @@ public class SeleniumTests {
 		caps.setBrowserName("chrome");
 		//caps.setVersion("58");
 
-		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
+		WebDriver driver = new RemoteWebDriver(new URL("http://vm-107.element34.net:4444/wd/hub"), caps);
 
 		// navigate to the URL
 		driver.get("https://www.deutschepost.de/de.html");

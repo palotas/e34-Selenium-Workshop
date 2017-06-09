@@ -13,8 +13,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class PostSelectionDonePage {
 
-    final String addToBasketLocator = "div.row:nth-child(4) > div:nth-child(1) > div:nth-child(1) > a:nth-child(6)";
-    @FindBy(css=addToBasketLocator)
+    final String addToBasketLocator = "actionbutton--addtobasket";
+    @FindBy(className=addToBasketLocator)
     private WebElement addToBasket;
 
     final String shoppingBasketLocator = "#locnav__button-basket";
@@ -28,7 +28,7 @@ public class PostSelectionDonePage {
 
     public void clickAddToBasket(WebDriver driver) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 15);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(addToBasketLocator)));
+        wait.until(ExpectedConditions.elementToBeClickable(By.className(addToBasketLocator)));
         addToBasket.click();
     }
 
