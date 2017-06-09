@@ -4,7 +4,7 @@
     <test name="Test">
 
         <classes>
-            <class name="pageObjects.PostTests">
+            <class name="DemoTests">
             </class>
         </classes>
 
