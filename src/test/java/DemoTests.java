@@ -43,7 +43,7 @@ public class DemoTests {
 
 
     @WebTest(video = true, browsers = Browsers.Dev)
-    @Test(invocationCount = 1, threadPoolSize = 10)
+    @Test(invocationCount = 1, threadPoolSize = 10, enabled = false)
     public void bahnTest() throws InterruptedException, MalformedURLException {
         webdriver().get("http://www.bahn.de");
         webdriver().findElement(By.id("js-auskunft-autocomplete-from")).sendKeys("Frankfurt", Keys.ARROW_DOWN, Keys.TAB);
@@ -61,7 +61,7 @@ public class DemoTests {
 
 
     @WebTest(video = true, browsers = Browsers.Chrome)
-    @Test(invocationCount = 5, threadPoolSize = 10)
+    @Test(invocationCount = 5, threadPoolSize = 10, enabled = false)
     public void e34StaticTest() throws InterruptedException, MalformedURLException {
 
         webdriver().get("http://static.e34.lan:8080/www/index2.html");
@@ -70,7 +70,7 @@ public class DemoTests {
     }
 
     @WebTest(video = true, browsers = Browsers.Chrome)
-    @Test(invocationCount = 5, threadPoolSize = 10)
+    @Test(invocationCount = 5, threadPoolSize = 10, enabled = false)
     public void e34Test() throws InterruptedException, MalformedURLException {
 
         webdriver().get("http://static.e34.lan:8080/e34/index.html");
