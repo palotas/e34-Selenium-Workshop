@@ -22,8 +22,9 @@ public class PostWarenkorbPage {
     }
 
     public String getSum(WebDriver driver) throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(driver, 15);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(totalLocator)));
+        //WebDriverWait wait = new WebDriverWait(driver, 15);
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(totalLocator)));
+        Thread.sleep(5000);
         return total.getText();
     }
 
