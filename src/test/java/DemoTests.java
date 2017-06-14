@@ -24,8 +24,8 @@ public class DemoTests {
     }
 
 
-    @WebTest(video = true, browsers = Browsers.Dev)
-    @Test(invocationCount = 1, threadPoolSize = 1)
+    @WebTest(video = true, browsers = Browsers.Chrome)
+    @Test
     public void postTest() throws InterruptedException, MalformedURLException {
         PostHomepage homepage = new PostHomepage(webdriver());
         homepage.openHomePage(webdriver());
@@ -41,8 +41,9 @@ public class DemoTests {
     }
 
 
+
     @WebTest(video = true, browsers = Browsers.Dev)
-    @Test(invocationCount = 2, threadPoolSize = 10)
+    @Test(invocationCount = 1, threadPoolSize = 10)
     public void bahnTest() throws InterruptedException, MalformedURLException {
         webdriver().get("http://www.bahn.de");
         webdriver().findElement(By.id("js-auskunft-autocomplete-from")).sendKeys("Frankfurt", Keys.ARROW_DOWN, Keys.TAB);
