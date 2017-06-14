@@ -20,7 +20,7 @@ public class DemoTests {
 
     @BeforeTest
     public void setup() {
-        Settings.setHubUrl("http://vm-105.element34.net:4444");
+        Settings.setHubUrl("http://192.168.34.106.element34.net:4444");
     }
 
 
