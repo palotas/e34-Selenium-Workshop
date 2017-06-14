@@ -35,7 +35,7 @@ public class DemoTests {
 
         PostWarenkorbPage warenkorb = selectionDone.selectShoppingBasket(webdriver());
 
-        Assert.assertTrue(warenkorb.getSum(webdriver()).contains("9,95"), "Summe is: " + warenkorb.getSum(webdriver()));
+        Assert.assertTrue(warenkorb.getSum(webdriver()).contains("9,93"), "Summe is: " + warenkorb.getSum(webdriver()));
         webdriver().quit();
 
     }
@@ -43,7 +43,7 @@ public class DemoTests {
 
 
     @WebTest(video = true, browsers = Browsers.Dev)
-    @Test(invocationCount = 1, threadPoolSize = 10, enabled = false)
+    @Test(invocationCount = 1, threadPoolSize = 10, enabled = true)
     public void bahnTest() throws InterruptedException, MalformedURLException {
         webdriver().get("http://www.bahn.de");
         webdriver().findElement(By.id("js-auskunft-autocomplete-from")).sendKeys("Frankfurt", Keys.ARROW_DOWN, Keys.TAB);
