@@ -20,11 +20,12 @@ public class DemoTests {
 
     @BeforeTest
     public void setup() {
-        Settings.setHubUrl("http://vm-107.element34.net:4444");
+        Settings.setHubUrl("http://vm-105.element34.net:4444");
     }
 
+
     @WebTest(video = true, browsers = Browsers.Dev)
-    @Test(invocationCount = 2, threadPoolSize = 10)
+    @Test(invocationCount = 1, threadPoolSize = 1)
     public void postTest() throws InterruptedException, MalformedURLException {
         PostHomepage homepage = new PostHomepage(webdriver());
         homepage.openHomePage(webdriver());
