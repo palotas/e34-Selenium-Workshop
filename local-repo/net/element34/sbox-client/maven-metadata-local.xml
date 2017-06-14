@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>net.element34</groupId>
+  <artifactId>sbox-client</artifactId>
+  <versioning>
+    <versions>
+      <version>1.2.49-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20170614092025</lastUpdated>
+  </versioning>
+</metadata>

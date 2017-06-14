@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>net.element34</groupId>
+  <artifactId>sbox-client</artifactId>
+  <version>1.2.49-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <localCopy>true</localCopy>
+    </snapshot>
+    <lastUpdated>20170614092025</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>1.2.49-SNAPSHOT</value>
+        <updated>20170614092025</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.2.49-SNAPSHOT</value>
+        <updated>20170614092025</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
