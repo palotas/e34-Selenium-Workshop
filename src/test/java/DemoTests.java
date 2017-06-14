@@ -24,7 +24,7 @@ public class DemoTests {
     }
 
 
-    @WebTest(video = true, browsers = Browsers.Chrome)
+    @WebTest(video = true, browsers = Browsers.Dev)
     @Test
     public void postTest() throws InterruptedException, MalformedURLException {
         PostHomepage homepage = new PostHomepage(webdriver());
