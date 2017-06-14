@@ -69,6 +69,5 @@ hs_err_pid*
 #mpalotas
 *.iml
 target
-*.xml
 *.idea
 .gitignore
