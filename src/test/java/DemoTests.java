@@ -35,7 +35,7 @@ public class DemoTests {
 
         PostWarenkorbPage warenkorb = selectionDone.selectShoppingBasket(webdriver());
 
-        Assert.assertTrue(warenkorb.getSum(webdriver()).contains("9,94"), "Summe is: " + warenkorb.getSum(webdriver()));
+        Assert.assertTrue(warenkorb.getSum(webdriver()).contains("9,95"), "Summe is: " + warenkorb.getSum(webdriver()));
         webdriver().quit();
 
     }
